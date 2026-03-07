@@ -118,9 +118,9 @@ ENV PATH="/command:/pfm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 
 COPY --from=builder / /
 RUN groupadd -g 32760 syslog && \
-     useradd -u 32760 -g 32760 -M -s /bin/false syslog && \
+     useradd -u 32760 -g 32760 -M -d /var/log/syslogd -s /usr/sbin/nologin syslog && \
      groupadd -g 32761 sysllog && \
-     useradd -u 32761 -g 32761 -M -s /bin/false sysllog
+     useradd -u 32761 -g 32761 -M  -d /var/log/syslogd -s /usr/sbin/nologin sysllog
 COPY --from=s6 / /
 COPY --from=s6-debian /pfm /pfm
 COPY --from=s6-debian /etc/s6-overlay /etc/s6-overlay
