@@ -132,7 +132,7 @@ clear_env = no
 
 request_terminate_timeout = ${REQ_TERM_TIMEOUT}s
 request_slowlog_timeout = 5s
-slowlog = /tmp/fpm/slow.log
+slowlog = /dev/stderr
 
 pm = ${FPM_PM}
 pm.max_children = ${MAX_CHILDREN}
